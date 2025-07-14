@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const csv = require('csv-parser');
-const fs = require('fs');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import csv from 'csv-parser';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 const PORT = 3001;
@@ -15,7 +15,7 @@ app.use(express.json());
 let nutritionData = [];
 
 // CSVファイルを読み込む
-fs.createReadStream(path.join(__dirname, '../database/nutrition_data.csv'))
+fs.createReadStream('./nutrition_data.csv')
   .pipe(csv())
   .on('data', (row) => {
     nutritionData.push(row);
@@ -68,4 +68,6 @@ app.get('/api/foods/calories', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`サーバーがポート${PORT}で起動しました`);
-}); 
+});
+
+export default app;

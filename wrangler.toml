@@ -1,0 +1,19 @@
+name = "nutritionpicker"
+main = "backend/worker.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "nutritionpicker"
+
+[env.staging]
+name = "nutritionpicker-staging"
+
+# 必要に応じてKVストレージやD1データベースの設定を追加
+# [[kv_namespaces]]
+# binding = "NUTRITION_DATA"
+# id = "your-kv-namespace-id"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "nutrition-db"
+# database_id = "your-d1-database-id" 
