@@ -171,7 +171,7 @@ const NutritionPlanner: React.FC = () => {
   const fetchFoods = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3001/api/foods');
+      const response = await axios.get('https://nutritionpicker.xmiyabix0808.workers.dev/api/foods');
       setAllFoods(response.data);
       setError(null);
     } catch (err) {
@@ -253,7 +253,7 @@ const NutritionPlanner: React.FC = () => {
       for (const food of category.foods) {
         if (currentNutrition[currentKey] >= adjustedTargets[targetKey] || foodsSelected >= maxFoodsPerCategory) break;
         
-        const nutrientPer100g = parseFloat(food[getNutrientField(category.name)] || '0');
+        const nutrientPer100g = parseFloat(food[getNutrientField(category.name )as keyof Food] || '0');
         if (nutrientPer100g <= 0) continue;
         
         const neededNutrient = adjustedTargets[targetKey] - currentNutrition[currentKey];

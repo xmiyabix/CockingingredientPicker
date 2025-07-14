@@ -27,7 +27,7 @@ const FoodList: React.FC = () => {
   const fetchFoods = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3001/api/foods');
+      const response = await axios.get('https://nutritionpicker.xmiyabix0808.workers.dev/api/foods');
       setFoods(response.data);
       setError(null);
     } catch (err) {
